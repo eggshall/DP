@@ -9,7 +9,7 @@ efficiency_engine = 0.35  # 发动机效率
 efficiency_battery_charge = 0.85  # 电池充电效率
 efficiency_battery_discharge = 0.9  # 电池放电效率
 
-# 模拟WLTC工况的功率需求序列（假设这里有真实的WLTC数据）
+# 模拟WLTC工况的功率需求序列
 P_demand = np.random.uniform(20, 60, N)  # 随机生成功率需求，实际应使用WLTC数据
 
 # 电池SOC更新函数
@@ -60,6 +60,6 @@ for t in range(N - 1):
     optimal_policy.append((P_engine, P_battery))
     SOC = update_SOC(SOC, P_battery)
 
-print("最优策略（部分输出）：")
+print("最优策略：")
 for t, (P_engine, P_battery) in enumerate(optimal_policy[:]):
     print(f"时间步 {t + 1}: 发动机功率 = {P_engine:.2f} kW, 电池功率 = {P_battery:.2f} kW")
